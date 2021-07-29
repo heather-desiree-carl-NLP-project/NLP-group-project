@@ -10,7 +10,7 @@ import os
 import json
 from typing import Dict, List, Optional, Union, cast
 import requests
-#from repo_list import REPOS
+from repo_list import REPOS
 
 from env import github_token, github_username
 
