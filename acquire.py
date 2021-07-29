@@ -10,6 +10,7 @@ import os
 import json
 from typing import Dict, List, Optional, Union, cast
 import requests
+#from repo_list import REPOS
 
 from env import github_token, github_username
 
@@ -20,7 +21,7 @@ from env import github_token, github_username
 # TODO: Add your github username to your env.py file under the variable `github_username`
 # TODO: Add more repositories to the `REPOS` list below.
 
-REPOS = []
+# REPOS = []
  
 
 headers = {"Authorization": f"token {github_token}", "User-Agent": github_username}
@@ -88,12 +89,16 @@ def process_repo(repo: str) -> Dict[str, str]:
         "readme_contents": readme_contents,
     }
 
-
 def scrape_github_data() -> List[Dict[str, str]]:
     """
     Loop through all of the repos and process them. Returns the processed data.
     """
+    #lst = []
+    #for repo in REPOS:
+    #    print(repo)
+    #    lst.append(process_repo(repo))
     return [process_repo(repo) for repo in REPOS]
+
 
 
 if __name__ == "__main__":
