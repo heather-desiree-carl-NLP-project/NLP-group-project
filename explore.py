@@ -53,3 +53,76 @@ def plot_overlap_stacked_bar(word_counts, category, num_top = 20, colors = None)
     plt.gca().xaxis.set_major_formatter(mpl.ticker.FuncFormatter('{:.0%}'.format))
     
     plt.show()
+
+    ############# Bigram bar graph and word cloud #############
+    
+def bigram_count_word_cloud(words_list, top_num = 20):
+    '''
+    This function takes in a words_list
+    Creates bigrams
+    Plots the counts on a bar chart and a wordcloud 
+    Optional arguements to change customization
+    - top_num: default 20, shows most common number of bigrams
+    '''
+
+    # create bigrams
+    ngrams = pd.Series(nltk.bigrams(words_list)).value_counts().head(top_num)
+    
+    # set up figuresize
+    plt.figure(figsize = (20, top_num/2.5))
+    
+    # plot bigrams on left subplot
+    plt.subplot(1, 2, 1)
+    ngrams.sort_values(ascending = True).plot.barh(color = 'seagreen', alpha = .7, width = .9)
+    plt.title(f'Most common Bigrams')
+    
+    # create dictionary of words from the bigrams
+    data = {k[0] + ' ' + k[1]: v for k, v in ngrams.to_dict().items()}
+    
+    # create wordcloud image
+    img = WordCloud(background_color='white', width=400, height=400).generate_from_frequencies(data)
+    
+    # plot worcloud on right subplot
+    plt.subplot(1, 2, 2)
+    # show image
+    plt.imshow(img)
+    plt.axis('off')
+    plt.title("Word Cloud", font = 'Arial', fontsize= 20)
+    plt.show()
+    
+    ############# Trigram bar graph and word cloud #############
+    
+def trigram_count_word_cloud(words_list, top_num = 20):
+    '''
+    This function takes in a words_list
+    Creates bigrams
+    Plots the counts on a bar chart and a wordcloud 
+    Optional arguements to change customization
+    - top_num: default 20, shows most common number of bigrams
+    '''
+
+    # create trigrams
+    ngrams = pd.Series(nltk.trigrams(words_list)).value_counts().head(top_num)
+    
+    # set up figuresize
+    plt.figure(figsize = (20, top_num / 2.5))
+    
+    # plot trigrams on left subplot
+    plt.subplot(1, 2, 1)
+    ngrams.sort_values(ascending = True).plot.barh(color = 'seagreen', alpha = .7, width = .9)
+    plt.title(f'Most common Trigrams')
+    
+    # create dictionary of words from the bigrams
+    data = {k[0] + ' ' + k[1] + ' ' + k[2]: v for k, v in ngrams.to_dict().items()}
+    
+    # create wordcloud image
+    img = WordCloud(background_color='white', width=400, height=400).generate_from_frequencies(data)
+    
+    # plot worcloud on right subplot
+    plt.subplot(1, 2, 2)
+    # show image
+    plt.imshow(img)
+    plt.axis('off')
+    plt.title("Word Cloud", font = 'Arial', fontsize= 20)
+    plt.show()
+        
