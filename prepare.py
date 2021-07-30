@@ -1,4 +1,4 @@
-import nltk; nltk.download('stopwords')
+import nltk
 
 import unicodedata
 import re
