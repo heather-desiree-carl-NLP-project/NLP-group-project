@@ -30,12 +30,12 @@ def nlp_X_train_split(X_data, y_data):
     '''
     X_train_validate, X_test, y_train_validate, y_test = train_test_split(X_data, y_data, 
                                                                           stratify = y_data, 
-                                                                          test_size=.2, random_state=713)
+                                                                          test_size=.2, random_state=123)
     
     X_train, X_validate, y_train, y_validate = train_test_split(X_train_validate, y_train_validate, 
                                                                 stratify = y_train_validate, 
                                                                 test_size=.3, 
-                                                                random_state=713)
+                                                                random_state=123)
     
     return X_train, y_train, X_validate, y_validate, X_test, y_test
 
