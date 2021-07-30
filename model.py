@@ -72,12 +72,13 @@ def test_a_model(X_train, y_train, X_validate, y_validate, model, model_name, sc
 
 ########### Evaluation metrics printing function
 
-def print_metrics(model, X, y, pred, set_name = 'This Set'):
+def print_metrics(model, X, y, pred, class_names, set_name = 'This Set'):
     '''
     This function takes in a model, 
     X dataframe
     y dataframe 
     predictions 
+    Class_names (aka ['Java', 'Javascript', 'Jupyter Notebook', 'PHP'])
     and a set name (aka train, validate or test)
     Prints out a classification report 
     and confusion matrix as a heatmap
@@ -86,8 +87,6 @@ def print_metrics(model, X, y, pred, set_name = 'This Set'):
     - IMPORTANT change lables inside this function
     '''
     
-    # change your class names here
-    class_names = np.array(['spam', 'ham'])
     
     print(model)
     print(f"~~~~~~~~{set_name} Scores~~~~~~~~~")
@@ -107,7 +106,15 @@ def print_metrics(model, X, y, pred, set_name = 'This Set'):
 ######### This function makes models and prints metrics (uses above function)
 #### can run in a loop to loop through models 
 
-def make_models_and_print_metrics(model, model_name, X_train, y_train, X_validate, y_validate):
+def make_models_and_print_metrics(model, model_name, X_train, y_train, X_validate, y_validate, class_names):
+    '''
+    This function takes in a model object,
+    Name for the model (for vis purposes)
+    X_train, y_train
+    X_validate and y_validate
+    and the names of your classes (aka category names)
+    Uses print metrics function 
+    '''
     model.fit(X_train, y_train)
 
     #predict for train and validate
@@ -116,7 +123,7 @@ def make_models_and_print_metrics(model, model_name, X_train, y_train, X_validat
     
     print(f'                   ============== {model_name} ================           ')
     #see metrics for train
-    print_metrics(model, X_train, y_train, train_pred, set_name='Train')
+    print_metrics(model, X_train, y_train, train_pred, class_names, set_name='Train')
     #print metrics for validate
-    print_metrics(model, X_validate, y_validate, val_pred, set_name='Validate')
+    print_metrics(model, X_validate, y_validate, val_pred, class_names, set_name='Validate')
     print('-------------------------------------------------------------------\n')
