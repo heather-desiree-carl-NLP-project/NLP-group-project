@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib as mpl
 # for colormap tools
 from matplotlib import cm
 import pandas as pd
@@ -27,7 +28,7 @@ def get_word_counts_series(df, column):
     return word_counts
 
 
-def plot_overlap_stacked_bar(word_counts, category, num_top = 20, colors = 'tab10'):
+def plot_overlap_stacked_bar(word_counts, category, num_top = 20, colors = None):
     '''
     This function takes in word_counts df
         - Must have counts for each category as well as a category named 'all'
