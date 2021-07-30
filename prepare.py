@@ -4,6 +4,8 @@ import unicodedata
 import re
 import json
 
+from sklearn.model_selection import train_test_split
+
 import nltk
 from nltk.tokenize.toktok import ToktokTokenizer
 from nltk.corpus import stopwords
@@ -158,3 +160,20 @@ def drop_unneeded_data(df):
     df = get_top_4_languages(df)
     df = df.reset_index().drop(columns = 'index')
     return df
+
+
+def split_data(df):
+    '''
+    This function takes in a dataframe and splits it into train, test, and 
+    validate dataframes for my model
+    '''
+
+    train_validate, test = train_test_split(df, test_size=.2, 
+                                        random_state=123)
+    train, validate = train_test_split(train_validate, test_size=.3, 
+                                   random_state=123)
+
+    print('train--->', train.shape)
+    print('validate--->', validate.shape)
+    print('test--->', test.shape)
+    return train, validate, test
