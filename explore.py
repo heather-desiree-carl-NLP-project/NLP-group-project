@@ -56,7 +56,7 @@ def plot_overlap_stacked_bar(word_counts, category, num_top = 20, colors = None)
 
     ############# Bigram bar graph and word cloud #############
     
-    def bigram_count_word_cloud(words_list, top_num = 20):
+def bigram_count_word_cloud(words_list, top_num = 20):
     '''
     This function takes in a words_list
     Creates bigrams
@@ -92,7 +92,7 @@ def plot_overlap_stacked_bar(word_counts, category, num_top = 20, colors = None)
     
     ############# Trigram bar graph and word cloud #############
     
-    def trigram_count_word_cloud(words_list, top_num = 20):
+def trigram_count_word_cloud(words_list, top_num = 20):
     '''
     This function takes in a words_list
     Creates bigrams
