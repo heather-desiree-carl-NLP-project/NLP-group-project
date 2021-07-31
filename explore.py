@@ -28,13 +28,15 @@ def get_word_counts_series(df, column):
     return word_counts
 
 
-def plot_overlap_stacked_bar(word_counts, category, num_top = 20, colors = None):
+def plot_overlap_stacked_bar(word_counts, category, num_top = 20, cmap = None):
     '''
     This function takes in word_counts df
         - Must have counts for each category as well as a category named 'all'
     category you want to sort by (aka top 20 words in java readmes)
     num_top is how many words you want to see the proportion of, default = 20
     Default colors are tab10 but you can customize that
+    
+    for cmap use 'viridis'
     
     '''
     plt.figure(figsize=(16, 9))
@@ -45,7 +47,7 @@ def plot_overlap_stacked_bar(word_counts, category, num_top = 20, colors = None)
      .apply(lambda row: row / row['all'], axis=1)
      .drop(columns='all')
      .sort_values(by=category)
-     .plot.barh(stacked=True, width=1, ec='grey', color = colors))
+     .plot.barh(stacked=True, width=1, ec='lightgrey', cmap = cmap, alpha = 1))
     plt.legend(bbox_to_anchor= (1.03,1))
     plt.title(f'% of most common {num_top} {category} Readme Words\n')
     plt.xlabel('\nProportion of Overlap')
@@ -54,7 +56,7 @@ def plot_overlap_stacked_bar(word_counts, category, num_top = 20, colors = None)
     
     plt.show()
 
-    ############# Bigram bar graph and word cloud #############
+############# Bigram bar graph and word cloud #############
     
 def bigram_count_word_cloud(words_list, top_num = 20):
     '''
