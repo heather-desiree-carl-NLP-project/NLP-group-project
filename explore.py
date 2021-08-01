@@ -58,7 +58,7 @@ def plot_overlap_stacked_bar(word_counts, category, num_top = 20, cmap = None):
 
 ############# Bigram bar graph and word cloud #############
     
-def bigram_count_word_cloud(words_list, top_num = 20):
+def bigram_count_word_cloud(words_list, top_num = 20, title_name = None):
     '''
     This function takes in a words_list
     Creates bigrams
@@ -75,8 +75,8 @@ def bigram_count_word_cloud(words_list, top_num = 20):
     
     # plot bigrams on left subplot
     plt.subplot(1, 2, 1)
-    ngrams.sort_values(ascending = True).plot.barh(color = 'seagreen', alpha = .7, width = .9)
-    plt.title(f'Most common Bigrams')
+    ngrams.sort_values(ascending = True).plot.barh(color = '#29af7f', alpha = .7, width = .9)
+    plt.title(f'Top {top_num} Bigrams: {title_name}')
     
     # create dictionary of words from the bigrams
     data = {k[0] + ' ' + k[1]: v for k, v in ngrams.to_dict().items()}
@@ -94,7 +94,7 @@ def bigram_count_word_cloud(words_list, top_num = 20):
     
     ############# Trigram bar graph and word cloud #############
     
-def trigram_count_word_cloud(words_list, top_num = 20):
+def trigram_count_word_cloud(words_list, top_num = 20, title_name = None):
     '''
     This function takes in a words_list
     Creates bigrams
@@ -111,8 +111,8 @@ def trigram_count_word_cloud(words_list, top_num = 20):
     
     # plot trigrams on left subplot
     plt.subplot(1, 2, 1)
-    ngrams.sort_values(ascending = True).plot.barh(color = 'seagreen', alpha = .7, width = .9)
-    plt.title(f'Most common Trigrams')
+    ngrams.sort_values(ascending = True).plot.barh(color = '#29af7f', alpha = .7, width = .9)
+    plt.title(f'Top {top_num} Trigrams: {title_name}')
     
     # create dictionary of words from the bigrams
     data = {k[0] + ' ' + k[1] + ' ' + k[2]: v for k, v in ngrams.to_dict().items()}
