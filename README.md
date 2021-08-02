@@ -50,12 +50,8 @@ The goal of this project is to predict the primary programming language of each 
 - Models Made:
     - Logistic Regression
     - KNN
-    - Decision Tree
-    - Random Forest
-    - Ridge Classifier
-    - SDG Classifier
 - Best Model:
-    - SDG Classifier
+    - XX Classifier
 - Model testing:
     - Train
         - XX%
@@ -78,11 +74,12 @@ The goal of this project is to predict the primary programming language of each 
     8. NLTK
     9. BeautifulSoup
 * Steps to recreate
-    1. f you wish to recreate this project download the csv files for red wine and white wine and save them to your repo. Then you can run this notebook. Check out the README for the skills required. More information about this data can be found here.
+    1. If you wish to recreate this project download the json file for ...
 
     - Read the README.md
+    - Download the data2.json file
     - Download the prepare.py, explore.py, model.py and final_notebook.ipynb files into your working directory, or clone this repository
-    - Ensure your csv files are named appropriately ('winequality-red.csv' and 'winequality-white.csv', should be defaults from links above)
+    - Ensure your json file is named appropriately (data2.json)
     - Run the final_notebook.ipynb notebook
 
 
@@ -94,22 +91,18 @@ The goal of this project is to predict the primary programming language of each 
 #### Target
 Name | Description | Type
 :---: | :---: | :---:
-life_expectancy | The average life expectancy in years of that country's population | float
+language | The repository's respective programming language | object
 #### Features
 Name | Description | Type
 :---: | :---: | :---:
 repo | The name of the specific repository | object
-language | Alcohol, recorded per capita (15+) consumption (in litres of pure alcohol)  | float
 readme_contents | The contents of readme file associated to that repo | object
-cleaned | Indicates whether a country is developed or still developing | int
-stemmed | Adult Mortality Rates of both sexes (probability of dying between 15 and 60 years per 1000 population) | float
-lemmatized | Number of Infant Deaths per 1000 population | int
-
+cleaned | The readme contents with stopwords removed, and text normalized and tokenized | object
+stemmed | The cleaned data stemmed | object
+lemmatized | The cleaned data lemmatized | object
 
 
 
 ## Recommendations/With More Time:
-1. I would prefer to continue to impute the remainder of my nulls as opposed to just dropping the rest of them.
-2. I would explore more clustering possibilities to create new features and see how I can create more correlated features.
-3. I would assess the outliers and/or utilize different scaling methods to see if that has a varying impact on model performance.
+1. We would add in varying repo languages to see if we could increase the model accuracy.
 
