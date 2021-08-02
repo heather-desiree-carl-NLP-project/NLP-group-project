@@ -22,18 +22,15 @@ The goal of this project is to predict the primary programming language of each 
     - Stem and Lemmatize
     - Narrow data down to repo's top four languages (java, javascript, php and jupyter)
 - Explore data:
-    - How often are words used?
-        - Count of words
-        - Percentage of words
     - Explore word clouds for top 4 languages
-        - Is there anything that stands out?
+    - How often are words used?
+        - Top 20 words for each language
     - Utilize bar graphs, bigrams and trigrams for top 4 languages
-        - Is there anything of importance?
     - Analyze bigram and trigram word clouds for top 4 languages
-        - What did you notice?
 - Modeling:
     - Make multiple models.
-    - Pick best model.
+    - Use cleaned, stemmed and lemmatized data
+    - Pick best model to move forward with.
     - Test Data.
     - Conclude results.
     
@@ -42,16 +39,15 @@ The goal of this project is to predict the primary programming language of each 
 
 ## Findings:
 ### Explore:
-- PHP is the most commonly used coding language 
+- PHP is the most commonly used coding language
+- Bigrams and Trigrams have variable phrases for each language
     
 ### Modeling:
-- Baseline:
-    - XX%
 - Models Made:
-    - Logistic Regression
+    - Linear SVC
     - KNN
 - Best Model:
-    - XX Classifier
+    - Linear SVC (on lemmatized data)
 - Model testing:
     - Train
         - XX%
@@ -78,9 +74,9 @@ The goal of this project is to predict the primary programming language of each 
 
     - Read the README.md
     - Download the data2.json file
-    - Download the prepare.py, explore.py, model.py and final_notebook.ipynb files into your working directory, or clone this repository
+    - Download the prepare.py, explore.py, model.py and project_final_notebook.ipynb files into your working directory, or clone this repository
     - Ensure your json file is named appropriately (data2.json)
-    - Run the final_notebook.ipynb notebook
+    - Run the project_final_notebook.ipynb notebook
 
 
 ------------
@@ -96,13 +92,13 @@ language | The repository's respective programming language | object
 Name | Description | Type
 :---: | :---: | :---:
 repo | The name of the specific repository | object
-readme_contents | The contents of readme file associated to that repo | object
-cleaned | The readme contents with stopwords removed, and text normalized and tokenized | object
+readme_contents | The contents of readme file scraped from that repo | object
+cleaned | The readme contents with stopwords removed, text normalized and tokenized | object
 stemmed | The cleaned data stemmed | object
 lemmatized | The cleaned data lemmatized | object
 
 
 
 ## Recommendations/With More Time:
-1. We would add in varying repo languages to see if we could increase the model accuracy.
+1. We would add in varying repo languages to see if we could increase the model's drop off on validate set.
 
