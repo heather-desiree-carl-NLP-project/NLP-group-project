@@ -1,5 +1,7 @@
 # Predicting Repository Languages
 
+![github_wordcloud](https://user-images.githubusercontent.com/69991789/127923505-65a4e277-e414-401a-a6e1-eff346135647.png)
+
 ## **See our completed presentation [here]()**
 
 ## Project Goals:
@@ -8,7 +10,7 @@
 
 
 ## Project Goals/Description
-The goal of this project is to predict the primary programming language of each repository by scraping the repository's README file contents. This project was initiated by utilizing web scraping techniques to scrape README files from various Github repositories. After wrangling our data, our group conducted natural language processing exploration and modeling. We employed multiclass classification methods to create a machine learning model. The end goal was to create an NLP model to predict the programming language used in a github repository based on the words and word combinations found in the readme files.
+The goal of this project is to predict the programming language of each repository by scraping the repository's README file contents. This project was initiated by utilizing web scraping techniques to scrape README files from various GitHub repositories. After acquiring and preparing our data, our team conducted natural language processing exploration methods such as word clouds, bigrams and trigrams. We employed multiclass classification methods to create multiple machine learning models. The end goal was to create an NLP model that accurately predicted the programming language used in a github repository based on the words and word combinations found in the readme files.
 
 ### Project Outline:
     
@@ -30,19 +32,26 @@ The goal of this project is to predict the primary programming language of each 
     - Utilize bar graphs, bigrams and trigrams for top 4 languages
     - Analyze bigram and trigram word clouds for top 4 languages
 - Modeling:
-    - Make multiple models.
-    - Use cleaned, stemmed and lemmatized data
-    - Pick best model to move forward with.
-    - Test Data.
-    - Conclude results.
+    - Created baseline model based off most common language (PHP)
+    - Make multiple competitive models
+    - Use cleaned, stemmed and lemmatized data on models
+    - Pick best performing model to move forward with.
+    - Test the top model on unseen test data set
+    - Conclude results
     
 ### Target variable
 - Language
 
 ## Findings:
+## Data Wrangle:
+- Web scraped respository README files that had the word "customer" in them
+- Filtered out the scraped content by removing non-english repos
+- Normalized, tokenized, stemmed and lemmatized the content for NLP
+- Split data into train, validate and test set
 ### Explore:
 - PHP is the most commonly used coding language
-- Bigrams and Trigrams have variable phrases for each language
+- Some words were key identifiers to their language, such as "magento" for PHP and "model" for jupyter
+- Bigrams and Trigrams have variable phrases for each language and no major commonality across the different languages.
     
 ### Modeling:
 - Baseline Model:
@@ -58,12 +67,12 @@ The goal of this project is to predict the primary programming language of each 
 - Best Model:
     - SVC (on lemmatized data)
 - Model testing:
-    - Train
+    - Train Dataset
         - 100% accuracy
-    - Validate
-        - 86% accuracy
+    - Validate Dataset (unseen)
+        - 85% accuracy
 - Performance:
-    - Test
+    - Test Dataset (unseen)
         - 83% accuracy
 
 
@@ -110,5 +119,5 @@ lemmatized | The cleaned data lemmatized | object
 
 ## Recommendations/With More Time:
 1. We would add in varying repo languages to see if we could increase the model's drop off on validate set.
-2. Adding in more Java and JavaScript readme's specifically may help model performance since they are the lowest amount of repo's we have.
+2. Adding in more Java and JavaScript readme files specifically may help model performance since they are the lowest amount of repos we have.
 
