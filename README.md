@@ -1,5 +1,7 @@
 # Predicting Repository Languages
 
+##**See our completed presentation**
+
 ## Project Goals:
 - Can we successfully predict a repository's coding languge based off the readme contents?
 - What readme contents contribute to the prediction of a repository's coding language?
@@ -8,7 +10,7 @@
 ## Project Goals/Description
 The goal of this project is to predict the primary programming language of each repository by scraping the repository's README file contents. This project was initiated by utilizing web scraping techniques to scrape README files from various Github repositories. After wrangling our data, our group conducted natural language processing exploration and modeling. We employed multiclass classification methods to create a machine learning model. The end goal was to create an NLP model to predict the programming language used in a github repository based on the words and word combinations found in the readme files.
 
-### Projet Outline:
+### Project Outline:
     
 - Acquisiton of data:
     - Search for repositories on git hub with "customer" as a commonality.
@@ -24,7 +26,7 @@ The goal of this project is to predict the primary programming language of each 
 - Explore data:
     - Explore word clouds for top 4 languages
     - How often are words used?
-        - Top 20 words for each language
+        - Analyze top 20 words for each language
     - Utilize bar graphs, bigrams and trigrams for top 4 languages
     - Analyze bigram and trigram word clouds for top 4 languages
 - Modeling:
@@ -43,19 +45,26 @@ The goal of this project is to predict the primary programming language of each 
 - Bigrams and Trigrams have variable phrases for each language
     
 ### Modeling:
-- Models Made:
-    - Linear SVC
-    - KNN
+- Baseline Model:
+    - Using language mode (PHP being the most common) to create baseline.
+    - Accuracy is 38% on unseen data.
+- Models created on cleaned, stemmed and lemmatized data:
+    - Support Vector Classification (SVC)
+    - K-Nearest Neighbor (KNN)
+    - Naive Bayes
+    - Decision Tree
+    - Random Forest
+    - Logistic Regression
 - Best Model:
-    - Linear SVC (on lemmatized data)
+    - SVC (on lemmatized data)
 - Model testing:
     - Train
-        - XX%
+        - 100% accuracy
     - Validate
-        - XX%
+        - 86% accuracy
 - Performance:
     - Test
-        - XX%
+        - 83% accuracy
 
 
 ## Replicate My Project
@@ -70,7 +79,7 @@ The goal of this project is to predict the primary programming language of each 
     8. NLTK
     9. BeautifulSoup
 * Steps to recreate
-    1. If you wish to recreate this project download the json file for ...
+    1. If you wish to recreate this project:
 
     - Read the README.md
     - Download the data2.json file
@@ -101,4 +110,5 @@ lemmatized | The cleaned data lemmatized | object
 
 ## Recommendations/With More Time:
 1. We would add in varying repo languages to see if we could increase the model's drop off on validate set.
+2. Adding in more Java and JavaScript readme's specifically may help model performance since they are the lowest amount of repo's we have.
 
