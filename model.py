@@ -93,7 +93,7 @@ def print_metrics(model, X, y, pred, class_names, set_name = 'This Set'):
     print(classification_report(y, pred))
     
     #purple_cmap = sns.cubehelix_palette(as_cmap=True)
-    purple_cmap = sns.color_palette("light:maroon", as_cmap=True)
+    purple_cmap = sns.color_palette("light:indigo", as_cmap=True)
     
     with sns.axes_style("white"):
         matrix = plot_confusion_matrix(model,X, y, display_labels=class_names, 
@@ -126,4 +126,26 @@ def make_models_and_print_metrics(model, model_name, X_train, y_train, X_validat
     print_metrics(model, X_train, y_train, train_pred, class_names, set_name='Train')
     #print metrics for validate
     print_metrics(model, X_validate, y_validate, val_pred, class_names, set_name='Validate')
+    print('-------------------------------------------------------------------\n')
+
+
+######### Function for evaluating the final Test data ################ 
+
+def make_models_and_print_metrics_test_data(model, model_name, X_train, y_train, X_test, y_test, class_names):
+    '''
+    This function takes in a model object,
+    Name for the model (for vis purposes)
+    X_train, y_train
+    X_test and y_test
+    and the names of your classes (aka category names)
+    Uses print metrics function 
+    Use this function on the final test data set. 
+    '''
+    model.fit(X_train, y_train)
+
+    test_pred = model.predict(X_test)
+    
+    print(f'                   ============== {model_name} ================           ')
+    #print metrics for Test
+    print_metrics(model, X_test, y_test, test_pred, class_names, set_name='Test')
     print('-------------------------------------------------------------------\n')
