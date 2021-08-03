@@ -21,7 +21,7 @@ The goal of this project is to predict the programming language of each reposito
     - Remove repositories in languages other than english
     - Drop nulls
     - Lowercase all text
-    - Remove stopwords (including customer, customers, i)
+    - Remove stopwords (including customer, customers, 1, 2, and i)
     - Tokenize the data
     - Stem and Lemmatize
     - Narrow data down to repo's top four languages (java, javascript, php and jupyter)
@@ -52,6 +52,7 @@ The goal of this project is to predict the programming language of each reposito
 - PHP is the most commonly used coding language
 - Some words were key identifiers to their language, such as "magento" for PHP and "model" for jupyter
 - Bigrams and Trigrams have variable phrases for each language and no major commonality across the different languages.
+- Java and JavaScript had no unique identifiers in their top words to their specific language
     
 ### Modeling:
 - Baseline Model:
@@ -73,7 +74,7 @@ The goal of this project is to predict the programming language of each reposito
         - 85% accuracy
 - Performance:
     - Test Dataset (unseen)
-        - 83% accuracy
+        - 82% accuracy
 
 
 ## Replicate My Project
